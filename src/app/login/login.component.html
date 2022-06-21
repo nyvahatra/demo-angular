@@ -1,0 +1,32 @@
+<!--<div id="login" class="shadow bg-white p-5">
+    <img src="../../assets/images/icons8-sun.gif" alt="LOGO" width="170" height="170">
+    <form [formGroup]="authentificationForm" (ngSubmit)="onSubmit(authentificationForm.value)">
+        <div class="mt-5" id="input">
+            <input type="text" class="form-control form-control-lg" formControlName="username" placeholder="Nom d'utilisateur">
+            <input type="password" class="form-control form-control-lg mt-3" formControlName="password" placeholder="Mot de passe">
+        </div>
+        <div class="container mt-4">
+            <span *ngIf="authentificationForm.status == 'VALID' && validation == false" class="h5 text-success">Valide</span>
+            <span *ngIf="authentificationForm.status == 'VALID' && validation != false" class="h5 text-danger">~ Coordonnée introuvable ~</span>
+            <span *ngIf="authentificationForm.status == 'INVALID'" class="h5 text-danger">Authentifiez-vous</span>
+        </div>
+        <div class="mt-4 d-flex flex-row justify-content-between align-items-center">
+            <button type="submit" class="btn w-100 text-white" id="btn_connexion">Connexion</button>
+            <button type="reset" class="ms-2 w-100 btn btn-secondary" id="btn_annuler">Annuler</button>
+        </div>
+    </form>
+</div>-->
+
+<div class="shadow-sm p-4 rounded" id="loginMax">
+    <img src="../../assets/images/icons8-dashboard-100.png" alt="LOGO" width="100" height="100">
+    <h1 class="mt-3">Dashboard</h1>
+    <div class="mt-4 d-flex justify-content-around">
+        <div id="input">
+            <form [formGroup]="authentificationForm" (ngSubmit)="onSubmit(authentificationForm.value)">
+                <input type="text" class="form-control" formControlName="matricule" placeholder="Matricule">
+                <input type="password" class="form-control mt-2" formControlName="password" placeholder="Mot de passe">
+                <button type="submit" class="btn mt-3 w-50" id="btn_connexion">Connexion</button>
+            </form>
+        </div>
+    </div>
+</div>

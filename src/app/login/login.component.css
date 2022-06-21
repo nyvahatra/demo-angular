@@ -1,0 +1,55 @@
+/* #login{
+    width: 25%;
+    height: auto;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px 8px 8px 8px;
+    text-align: center;
+}
+#login #input input{
+    font-size: 18px;
+}
+#login div #btn_connexion{
+    background-color: rgb(126, 93, 255);
+    transition: all .2s ease-in;
+}
+#login div #btn_connexion:hover{
+    background-color: rgb(81, 38, 255);
+} */
+
+#loginMax{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: auto;
+    text-align: center;
+    background-color: rgb(122, 146, 197);
+    transition: all .3s ease-in-out;
+
+}
+
+#loginMax h1{
+    font-weight: normal;    
+    color: rgb(245, 245, 245);
+}
+
+#loginMax #input{
+    width: 90%;
+}
+
+#loginMax #input input{
+    font-size: 17px;
+    padding: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+#loginMax #input #btn_connexion{
+    background-color: rgb(66, 67, 77);
+    color: white;
+}

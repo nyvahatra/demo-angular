@@ -1,0 +1,98 @@
+<!--<div class="fixed-top d-flex flex-column justify-content-between align-items-center p-3 bg-dark h-100" id="menu">
+    <div class="w-100 h-100 d-flex flex-column align-items-center">
+        <div id="donnee_admin" class="w-100">
+            <span class="h4 fw-lighter"><a class="text-white" routerLink="/test">Administrateur</a></span><br>
+            <span>{{username}}</span>
+            <hr>
+        </div>
+        <div class="w-100" id="btn_menu">
+            <button class="btn text-white w-100 mt-2" data-bs-toggle="collapse" data-bs-target="#inscription">Menu 1</button>
+            <div id="inscription" class="collapse">
+                <div class="p-3">
+                    <ul>
+                        <li><a href="/404">Link 1</a></li>
+                        <li><a href="/404">Link 2</a></li>
+                        <li><a href="/404">Link 3</a></li>
+                        <li><a href="/404">Link 4</a></li>
+                        <li><a href="/404">Link 5</a></li>
+                    </ul>
+                </div>
+            </div>
+            <button class="btn text-white w-100 mt-2">Menu 2</button>
+            <button class="btn text-white w-100 mt-2" routerLink="/demande">Demandes</button>
+            <button class="btn text-white w-100 mt-2" routerLink="/parametre">Paramètres</button>
+        </div>
+    </div>
+    <button class="btn btn-sm mt-3 text-white w-100 d-flex flex-row justify-content-around align-items-center" id="btn_deconnexion" (click)="deconnexion()"> 
+        <i class="fa fa-sign-out"></i> 
+        <span>Déconnexion</span>
+    </button>
+</div>
+<div id="en_tete" class="shadow-sm bg-body rounded">
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <span class="h2 fw-lighter">{{titleComponent}}</span>
+        <img [src]="imageComponent" alt="IMAGE" width="50" height="50">
+    </div>
+</div>-->
+
+<div *ngIf="innerWidth" class="fixed-top d-flex flex-column justify-content-between align-items-center p-3 bg-dark h-100" id="menu">
+    <div class="w-100 h-100 d-flex flex-column align-items-center">
+        <div id="donnee_admin" class="w-100">
+            <span class="h4 fw-lighter"><a class="text-white" routerLink="/test">Dashboard</a></span><br>
+            <span>T9000</span>
+            <hr>
+        </div>
+        <div class="w-100" id="btn_menu">
+            <!--<button class="btn w-100 mt-2 d-flex flex-row justify-content-between align-items-center" routerLink="/accueil" routerLinkActive="is-active">
+                <span class="ms-3">Accueil</span>
+                <i class="fa-solid fa-house me-2"></i>
+            </button>
+            <button class="btn w-100 mt-2 d-flex flex-row justify-content-between align-items-center" routerLink="/parametre" routerLinkActive="is-active">
+                <span class="ms-3">Paramètres</span>
+                <i class="fa-solid fa-gear me-2"></i>
+            </button>-->
+            <button *ngFor="let itemMenu of liste_menu" class="btn w-100 mt-2 d-flex flex-row justify-content-between align-items-center" routerLink="/{{itemMenu.root_menu}}" routerLinkActive="is-active">
+                <span class="ms-3">{{itemMenu.nom_menu}}</span>
+                <i class="{{itemMenu.icon_menu}} me-2"></i>
+            </button>
+        </div>
+    </div>
+    <button class="btn btn-sm mt-3 w-100 d-flex flex-row justify-content-between align-items-center" id="btn_deconnexion" (click)="deconnexion()"> 
+        <span class="ms-3">Déconnexion</span>
+        <i class="fa-solid fa-right-from-bracket me-2"></i>
+    </button>
+</div>
+<div class="fixed-top bg-white p-4 shadow-sm rounded d-flex flex-row justify-content-between align-items-center" id="topbar">    
+    <span class="h3 fw-lighter">{{titleComponent}}</span>
+    <img src="../../assets/images/icons8-dashboard-100.png" alt="LOGO" height="45" width="45">
+</div>
+<div id="tophide" class="fixed-top"></div>
+<div id="bottomhide" class="fixed-bottom"></div>
+
+
+<div *ngIf="!innerWidth" class="fixed-top d-flex flex-column justify-content-between align-items-center p-3 bg-dark h-100" id="menu">
+    <div class="w-100 h-100 d-flex flex-column align-items-center">
+        <div id="donnee_admin" class="w-100">
+            <span class="h4 fw-lighter"><a class="text-white" routerLink="/test">SG</a></span><br>
+            <span>T9000</span>
+            <hr>
+        </div>
+        <div class="w-100" id="btn_menu">
+            <button class="btn w-100 mt-2" routerLink="/accueil" routerLinkActive="is-active">
+                <i class="fa-solid fa-house"></i>
+            </button>
+            <button class="btn w-100 mt-2" routerLink="/parametre" routerLinkActive="is-active">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+        </div>
+    </div>
+    <button class="btn btn-sm mt-3 w-100" id="btn_deconnexion" (click)="deconnexion()"> 
+        <i class="fa-solid fa-right-from-bracket"></i>
+    </button>
+</div>
+<div class="fixed-top bg-white p-4 shadow-sm rounded d-flex flex-row justify-content-between align-items-center" id="topbar">
+    <span class="h3 fw-lighter">{{titleComponent}}</span>
+    <img src="../../assets/images/icons8-dashboard-100.png" alt="LOGO" height="45" width="45">
+</div>
+<div id="tophide" class="fixed-top"></div>
+<div id="bottomhide" class="fixed-bottom"></div>
