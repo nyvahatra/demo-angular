@@ -20,7 +20,7 @@ export class PageGuard implements CanActivate {
     let val: string = localStorage.getItem('isUserLoggedIn');
     if(val != null && val == "true"){
       if(url == '/'){
-        this.router.parseUrl('/test');
+        this.router.parseUrl('/accueil');
       } else {
         return true;
       }
