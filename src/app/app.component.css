@@ -4,7 +4,7 @@
     padding-left: 218px;
     padding-right: 15px;
     padding-bottom: 16px;
-    transition: all .3s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 @media only screen and (max-width: 1270px) {
     #content{
@@ -13,6 +13,6 @@
         padding-right: 10px;
         padding-bottom: 15px;
         padding-left: 98px;
-        transition: all .3s ease-in-out;
+        transition: all .4s ease-in-out;
     }
 }

@@ -21,7 +21,6 @@ export class MenuComponent implements OnInit {
 
 
   ngOnInit(): void {    
-    this.onResize()
     this.listMenu()
     this.matricule = this.cookies.get('username')
   }
@@ -36,11 +35,6 @@ export class MenuComponent implements OnInit {
     this.testService.getMenu().subscribe((res) => {
       this.liste_menu= res      
     })
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(){
-    this.innerWidth = window.innerWidth < 1270 ? false : true
   }
 
 }

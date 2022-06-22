@@ -1,41 +1,8 @@
-/* #menu{
-    width: 11%;
-    color: white;
-}
-#menu #donnee_admin{
-    text-align: center;
-}
-#menu #donnee_admin span a{
-    text-decoration: none;
-}
-#menu #btn_menu button{
-    border-color: black;
-    transition: all .2s ease-in;
-}
-#menu #btn_menu #inscription ul li a{
-    text-decoration: none;
-    color: white;
-}
-#menu #btn_menu button:hover{
-    background-color: rgb(128, 100, 243);
-}
-#menu #btn_deconnexion{
-    background-color: rgb(128, 100, 243);
-}
-#en_tete{
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-left: 25px;
-    padding-right: 25px;
-} */
-
 #menu{
     width: 200px;
     color: white;
     z-index: 10000;
-    transition: all .3s ease-in-out !important;
+    transition: all .4s ease-in-out !important;
 }
 #menu #donnee_admin{
     text-align: center;
@@ -60,6 +27,10 @@
     background-color: rgb(106, 127, 171);
     color: white;
     transition: all .2s ease-in;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .4s ease-in-out !important;
 }
 
 #menu #btn_deconnexion:hover{
@@ -72,12 +43,14 @@
     top: 1%;
     left: 215px;
     z-index: 10000;
+    transition: all .4s ease-in-out !important;
 }
 
 #tophide{
     background-color: rgb(245, 245, 245);
     width: 100%;
     height: 9%;
+    transition: all .4s ease-in-out !important;
 }
 
 #bottomhide{
@@ -90,12 +63,34 @@
     background-color: rgb(106, 127, 171);
 }
 
+#btn_menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .4s ease-in-out !important;
+}
+
+#text_menu{
+    margin-left: 10px;
+    transition: all .4s ease-in-out !important;
+}
+
+#icon_menu{
+    margin-right: 8px;
+    transition: all .4s ease-in-out !important;
+}
+
+#text2{
+    display: none;
+    transition: all .4s ease-in-out !important;
+}
+
 @media only screen and (max-width: 1270px) {
     #menu{
         width: 80px;
         color: white;
         z-index: 10000;        
-        transition: all .3s ease-in-out !important;
+        transition: all .4s ease-in-out !important;
     }
     #topbar{
         width: 91%;
@@ -103,5 +98,38 @@
         top: 1%;
         left: 94px;
         z-index: 10000;
+        transition: all .4s ease-in-out !important;
     }
+    
+    #text_menu{
+        display: none;
+        transition: all .4s ease-in-out !important;
+    }
+    
+    #btn_menu{
+        display: inline;
+        transition: all .4s ease-in-out !important;
+    }
+    
+    #icon_menu{
+        margin: 0;
+        transition: all .4s ease-in-out !important;
+    }
+    
+    #menu #btn_deconnexion{
+        margin: 0;
+        display: inline;
+        transition: all .4s ease-in-out !important;
+    }
+    
+    #text1{
+        display: none;
+        transition: all .4s ease-in-out !important;
+    }
+    
+    #text2{
+        display: inline;
+        transition: all .4s ease-in-out !important;
+    }
+
 }
