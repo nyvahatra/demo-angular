@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -7,7 +8,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class PageGuard implements CanActivate {
-  constructor(private authService:AuthService, private router:Router){}
+  constructor(private authService:AuthService, private router:Router, private cookies:CookieService){}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean | UrlTree {
@@ -17,7 +18,8 @@ export class PageGuard implements CanActivate {
 
   checkLogin(url: string): true | UrlTree{
     console.log("Url: " + url)
-    let val: string = localStorage.getItem('isUserLoggedIn');
+    // let val: string = localStorage.getItem('isUserLoggedIn'); // Local Storage
+    let val: string = this.cookies.get('isUserLoggedIn'); // Cookies Services
     if(val != null && val == "true"){
       if(url == '/'){
         this.router.parseUrl('/accueil');

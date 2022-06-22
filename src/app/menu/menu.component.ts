@@ -1,5 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../services/auth/auth.service';
 import { TestService } from '../services/test.service';
 
@@ -10,16 +11,19 @@ import { TestService } from '../services/test.service';
 })
 export class MenuComponent implements OnInit {
   
-  constructor(private route:Router, private authService:AuthService, private testService:TestService) { }
+  constructor(private route:Router, private authService:AuthService, private testService:TestService, private cookies:CookieService) { }
 
   @Input() titleComponent: string = '';
   innerWidth: boolean = true;
   liste_menu:any = []
   test:any = 'fa-solid fa-cloud-check'
+  matricule:any;
+
 
   ngOnInit(): void {    
     this.onResize()
     this.listMenu()
+    this.matricule = this.cookies.get('username')
   }
   
   deconnexion(){

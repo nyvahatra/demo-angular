@@ -12,38 +12,6 @@ export class LoginComponent implements OnInit {
 
   constructor( private router:Router, private formBuilder:FormBuilder, private authService: AuthService) { }
 
-  // message:string = 'Valide';
-  // username:string = '';
-  // password:string = '';
-  // validation:boolean = false;
-
-  // /* SANS FormBuilder
-  //   authentificationForm = new FormGroup({
-  //     username : new FormControl(''),
-  //     password : new FormControl('')
-  //   });
-  // */  
-  
-  // // AVEC FormBuilder
-  // // Validators.required rend le champ obligatoire
-  // authentificationForm = this.formBuilder.group({
-  //   username : ['', Validators.required],
-  //   password : ['', Validators.required]
-  // });
-
-  // ngOnInit(): void {
-  // }
-
-  // onSubmit(data: any){
-  //   this.username = data.username;
-  //   this.password = data.password;
-
-  //   this.authService.login(this.username, this.password).subscribe(data=>{
-  //     if(data) this.router.navigate(['test']);
-  //     else this.validation = true;
-  //   })
-  // }
-
   matricule: any
   password: any
   
