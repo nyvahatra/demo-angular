@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   @Input() titleComponent: string = '';
   innerWidth: boolean = true;
   liste_menu:any = []
-  test:any = 'fa-solid fa-house'
+  test:any = 'fa-solid fa-cloud-check'
 
   ngOnInit(): void {    
     this.onResize()
