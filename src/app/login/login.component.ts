@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   matricule: any
   password: any
+  resultat: any
   
   authentificationForm = this.formBuilder.group({
     matricule: [''],
@@ -27,9 +28,7 @@ export class LoginComponent implements OnInit {
   onSubmit(data: any){        
     this.matricule = data.matricule
     this.password = data.password
-    this.authService.login(this.matricule, this.password).subscribe(data => {
-      if(data) this.router.navigate(['accueil'])
-    })
+    this.authService.result(this.matricule, this.password)
   }
 
 

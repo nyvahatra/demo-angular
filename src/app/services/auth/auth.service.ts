@@ -1,43 +1,53 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
+import { TestService } from '../test.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   
-  constructor(private cookies:CookieService) { }
+  constructor(private cookies:CookieService, private testService:TestService, private router:Router) { }
 
   username_log:string = "T9000";
   password_log:string = "test";
   isUserLoggedIn: boolean = false;
 
-  login(username:string, password:string): Observable<any>{
-    this.isUserLoggedIn = username == this.username_log && password == this.password_log;
-
-    localStorage.setItem('isUserLoggedIn', this.isUserLoggedIn ? "true" : "false"); // Local Storage
+  result(matricule:string, password:string){
+    let result: any
+    this.testService.getLogin(matricule, password).subscribe(
+      data => result = data[0].count, 
+      error => {},
+      () => {
+        console.log('resultat : '+ result);
+        this.login(matricule, result).subscribe(data => {
+          if(data) this.router.navigate(['/accueil'])
+        });
+      }
+    );
+  }
+    
+  login(matricule:string, resultat:any): Observable<any>{
+    
+    this.isUserLoggedIn = resultat > 0;
     this.cookies.set('isUserLoggedIn', this.isUserLoggedIn ? 'true' : 'false' ); // Cookies Services
     
     return of(this.isUserLoggedIn).pipe(
       delay(1000),
       tap(val =>{
-        console.log("Is User Authentication is successful: " + val);
-        
-        sessionStorage.setItem('username', username); // Session Storage 
-        this.cookies.set('username', username); // Cookies Services
-      
+        console.log("Is User Authentication is successful: " + val);        
+        this.cookies.set('matricule', matricule); // Cookies Services
       })
     )
   }
 
   logout(): void{
     this.isUserLoggedIn = false;
-    
-    localStorage.removeItem("isUserLoggedIn"); // Local Storage
-    this.cookies.delete('username') // Cookies Services
-  
+    this.cookies.delete('matricule') // Cookies Services
+    this.cookies.delete('isUserLoggedIn') // Cookies Services
   }
   
 }

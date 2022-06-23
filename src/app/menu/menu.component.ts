@@ -22,7 +22,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {    
     this.listMenu()
-    this.matricule = this.cookies.get('username')
+    this.matricule = this.cookies.get('matricule')
   }
   
   deconnexion(){

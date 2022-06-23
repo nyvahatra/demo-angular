@@ -22,4 +22,9 @@ export class TestService {
     var API_URL = this.REST_API+'/get-menu';
     return this.http.get(API_URL, {})
   }
+
+  getLogin(matricule:string, password:string){
+    var API_URL = this.REST_API+'/get-login';
+    return this.http.post(API_URL, {matricule, password}, httpOptions)
+  }
 }
