@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from './services/auth/auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from './services/auth/auth.service';
 
 export class AppComponent {
   
-  constructor(private authService:AuthService){}
+  constructor(private cookies:CookieService){}
   
   title = 'demo-angular'
   innerWidth: any;
@@ -18,9 +19,7 @@ export class AppComponent {
   @HostListener('window:resize', ['$event'])
   ngOnInit(){
     this.innerWidth = window.innerWidth
-
-    let storeData = localStorage.getItem('isUserLoggedIn');
-    console.log("StoreData:" + storeData);
+    let storeData = this.cookies.get('isUserLoggedIn')
 
     if(storeData != null && storeData == "true"){
       this.isUserLoggedIn = true;

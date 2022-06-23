@@ -22,7 +22,7 @@ export class AuthService {
     this.cookies.set('isUserLoggedIn', this.isUserLoggedIn ? 'true' : 'false' ); // Cookies Services
     
     return of(this.isUserLoggedIn).pipe(
-      delay(1000),
+      delay(500),
       tap(val =>{
         console.log("Is User Authentication is successful: " + val);        
         this.cookies.set('matricule', matricule); // Cookies Services

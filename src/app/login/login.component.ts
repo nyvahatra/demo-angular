@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
 import { TestService } from '../services/test.service';
@@ -16,10 +16,12 @@ export class LoginComponent implements OnInit {
   matricule: any
   password: any
   resultat: any
+  erreur: boolean = false
+  status: boolean = false
   
   authentificationForm = this.formBuilder.group({
-    matricule: [''],
-    password: ['']
+    matricule: ['',Validators.required],
+    password: ['',Validators.required]
   })
 
   ngOnInit(){
@@ -29,17 +31,28 @@ export class LoginComponent implements OnInit {
   onSubmit(data: any){        
     this.matricule = data.matricule
     this.password = data.password
-    let resultat: any
-    this.testService.getLogin(this.matricule, this.password).subscribe(
-      data => resultat = data[0].count,
-      error => {},
-      () => {
-        console.log('resultat : '+ resultat);
-        this.authService.login(this.matricule, resultat).subscribe(data => {
-          if(data) this.router.navigate(['/accueil'])
-        });
-      }
-    )
+    if(this.authentificationForm.status == 'INVALID'){
+      this.erreur = false
+      this.status = true
+    } else {
+      this.status = false
+      // Use Test Services
+      this.testService.getLogin(this.matricule, this.password).subscribe( 
+        data => this.resultat = data[0].count,
+        error => {},
+        () => { // Async
+          console.log('resultat : '+ this.resultat);
+          // Use Auth Services
+          this.authService.login(this.matricule, this.resultat).subscribe(data => {
+            if(data){
+              this.router.navigate(['/accueil'])
+            } else {
+              this.erreur = true
+            }
+          });
+        }
+      )
+    }
   }
 
 
