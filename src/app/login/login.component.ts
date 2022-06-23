@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
+import { TestService } from '../services/test.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { AuthService } from '../services/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private router:Router, private formBuilder:FormBuilder, private authService: AuthService) { }
+  constructor( private router:Router, private formBuilder:FormBuilder, private authService: AuthService, private testService:TestService) { }
 
   matricule: any
   password: any
@@ -28,7 +29,17 @@ export class LoginComponent implements OnInit {
   onSubmit(data: any){        
     this.matricule = data.matricule
     this.password = data.password
-    this.authService.result(this.matricule, this.password)
+    let resultat: any
+    this.testService.getLogin(this.matricule, this.password).subscribe(
+      data => resultat = data[0].count,
+      error => {},
+      () => {
+        console.log('resultat : '+ resultat);
+        this.authService.login(this.matricule, resultat).subscribe(data => {
+          if(data) this.router.navigate(['/accueil'])
+        });
+      }
+    )
   }
 
 

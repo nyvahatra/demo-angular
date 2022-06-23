@@ -18,7 +18,6 @@ export class PageGuard implements CanActivate {
 
   checkLogin(url: string): true | UrlTree{
     console.log("Url: " + url)
-    // let val: string = localStorage.getItem('isUserLoggedIn'); // Local Storage
     let val: string = this.cookies.get('isUserLoggedIn'); // Cookies Services
     if(val != null && val == "true"){
       if(url == '/'){

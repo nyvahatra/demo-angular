@@ -16,20 +16,6 @@ export class AuthService {
   password_log:string = "test";
   isUserLoggedIn: boolean = false;
 
-  result(matricule:string, password:string){
-    let result: any
-    this.testService.getLogin(matricule, password).subscribe(
-      data => result = data[0].count, 
-      error => {},
-      () => {
-        console.log('resultat : '+ result);
-        this.login(matricule, result).subscribe(data => {
-          if(data) this.router.navigate(['/accueil'])
-        });
-      }
-    );
-  }
-    
   login(matricule:string, resultat:any): Observable<any>{
     
     this.isUserLoggedIn = resultat > 0;

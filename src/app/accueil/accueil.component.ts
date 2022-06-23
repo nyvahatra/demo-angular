@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TestService } from '../services/test.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { TestService } from '../services/test.service';
 })
 export class AccueilComponent implements OnInit {
 
-  constructor(private testService: TestService) { }
+  constructor(private testService: TestService, private router:Router) { }
   titreComponent: string = 'Accueil Component'
   info_user: any = []
 
