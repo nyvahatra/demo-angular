@@ -27,4 +27,9 @@ export class TestService {
     var API_URL = this.REST_API+'/get-login';
     return this.http.post(API_URL, {matricule, password}, httpOptions)
   }
+
+  addMenu(nom_menu:string, root_menu:string, icon_menu:string){
+    var API_URL = this.REST_API+'/add-menu';
+    return this.http.post(API_URL, {nom_menu, root_menu, icon_menu}, httpOptions)
+  }
 }

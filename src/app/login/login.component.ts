@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/accueil'])
             } else {
               this.erreur = true
+              this.authentificationForm.reset()
             }
           });
         }

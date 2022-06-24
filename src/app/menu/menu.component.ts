@@ -33,7 +33,7 @@ export class MenuComponent implements OnInit {
   
   listMenu() {
     this.testService.getMenu().subscribe((res) => {
-      this.liste_menu= res      
+      this.liste_menu = res      
     })
   }
 
