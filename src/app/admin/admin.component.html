@@ -1,0 +1,37 @@
+<app-menu [titleComponent]="titleComponent"></app-menu>
+<div class="w-50 mt-2 p-3 rounded shadow-sm bg-white"> 
+    <div class="text-center">
+        <span class="h3 fw-normal">Gestion des menus</span>
+    </div>
+    <hr>
+    <div> 
+        <table class="table table-bordered">
+            <thead>
+                <th style="width: 8%;">Icons</th>
+                <th style="width: 46%;">Noms</th>
+                <th style="width: 27%;">Routes</th>
+                <th style="width: 8%;">Rang</th>
+                <th style="width: 12%;"></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of liste_menu">
+                    <td class="text-center"><button class="btn btn-sm btn-secondary"><i class="{{item.icon_menu}}"></i></button></td>
+                    <td><input type="text" [(ngModel)]="item.nom_menu" class="form-control form-control-sm"></td>
+                    <td><input type="text" [(ngModel)]="item.route_menu" class="form-control form-control-sm"></td>
+                    <td><input type="text" [(ngModel)]="item.rang_menu" class="form-control form-control-sm text-center"></td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-warning" (click)="modifierMenu(item)"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn btn-sm ms-2 btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center"><button class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-plus"></i></button></td>
+                    <td><input type="text" class="form-control form-control-sm"></td>
+                    <td><input type="text" class="form-control form-control-sm"></td>
+                    <td><input type="text" [(ngModel)]="nextRang" class="form-control form-control-sm text-center"></td>
+                    <td class="text-center"><button class="btn btn-sm btn-success"><i class="fa-solid fa-check"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

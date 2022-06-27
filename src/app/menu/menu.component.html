@@ -9,7 +9,7 @@
             <hr>
         </div>
         <div id="btn_menu" class="w-100 d-flex flex-column">
-            <button *ngFor="let itemMenu of liste_menu" class="btn w-100 mt-2" id="btn_menu" routerLink="/{{itemMenu.root_menu}}" routerLinkActive="is-active">
+            <button *ngFor="let itemMenu of liste_menu" class="btn w-100 mt-2" id="btn_menu" routerLink="/{{itemMenu.route_menu}}" routerLinkActive="is-active">
                 <span id="text_menu">{{itemMenu.nom_menu}}</span>
                 <i class="{{itemMenu.icon_menu}}" id="icon_menu"></i>
             </button>

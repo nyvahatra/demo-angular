@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { TestService } from '../services/test.service';
 
 @Component({
@@ -8,11 +10,12 @@ import { TestService } from '../services/test.service';
   styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent implements OnInit {
-
   constructor(private testService: TestService, private router:Router) { }
   titreComponent: string = 'Accueil Component'
 
   ngOnInit(): void {
-  
+    this.testService.getJSON().subscribe(data => {
+      console.log(data[0])
+    })
   }
 }
