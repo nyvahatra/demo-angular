@@ -13,11 +13,6 @@ export class TestService {
   constructor(private http: HttpClient) { }
   REST_API = "http://localhost:3000";
   
-  getInfo(){
-    var API_URL = this.REST_API+'/get-info';
-    return this.http.get(API_URL, {})
-  }
-
   getMenu(){
     var API_URL = this.REST_API+'/get-menu';
     return this.http.get(API_URL, {})
@@ -26,10 +21,5 @@ export class TestService {
   getLogin(matricule:string, password:string){
     var API_URL = this.REST_API+'/get-login';
     return this.http.post(API_URL, {matricule, password}, httpOptions)
-  }
-
-  addMenu(nom_menu:string, root_menu:string, icon_menu:string){
-    var API_URL = this.REST_API+'/add-menu';
-    return this.http.post(API_URL, {nom_menu, root_menu, icon_menu}, httpOptions)
   }
 }

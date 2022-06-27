@@ -11,16 +11,8 @@ export class AccueilComponent implements OnInit {
 
   constructor(private testService: TestService, private router:Router) { }
   titreComponent: string = 'Accueil Component'
-  info_user: any = []
 
   ngOnInit(): void {
-    this.listUtilisateur()
+  
   }
-
-  listUtilisateur() {
-    this.testService.getInfo().subscribe((res) => {
-      this.info_user= res;
-    })
-  }
-
 }
