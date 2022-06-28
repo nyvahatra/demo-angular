@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MenuComponent } from '../menu/menu.component';
 import { TestService } from '../services/test.service';
@@ -11,7 +11,7 @@ import { TestService } from '../services/test.service';
 })
 export class ParametreComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private testService:TestService, private router:Router) { }
+  constructor(private formBuilder: UntypedFormBuilder, private testService:TestService, private router:Router) { }
 
   titleComponent: string = 'Paramètre Component';
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
 import { TestService } from '../services/test.service';
@@ -11,7 +11,7 @@ import { TestService } from '../services/test.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private router:Router, private formBuilder:FormBuilder, private authService: AuthService, private testService:TestService) { }
+  constructor( private router:Router, private formBuilder:UntypedFormBuilder, private authService: AuthService, private testService:TestService) { }
 
   matricule: any
   password: any
