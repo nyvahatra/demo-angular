@@ -17,7 +17,7 @@ export class TestService {
   getMenu(){
     var API_URL = this.REST_API+'/get-menu';
     return this.http.get(API_URL, {})
-  }
+  } 
 
   getLogin(matricule:string, password:string){
     var API_URL = this.REST_API+'/get-login';
@@ -36,5 +36,16 @@ export class TestService {
   updateMenu(nom_menu:string, route_menu:string, rang_menu:any, icon_menu:string, id_menu:any){
     var API_URL = this.REST_API+'/update-menu'
     return this.http.post(API_URL, {nom_menu,route_menu,rang_menu,icon_menu,id_menu}, httpOptions)
+  }   
+  
+  supprimerMenu(id_menu:any){
+    var API_URL = this.REST_API+'/supprimer-menu'
+    return this.http.post(API_URL, {id_menu}, httpOptions)
+  } 
+  
+  updateRangMenu(range:any, id_menu:any){
+    var API_URL = this.REST_API+'/update-rang-menu'
+    return this.http.post(API_URL, {range, id_menu}, httpOptions)
   }
+  
 }

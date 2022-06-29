@@ -1,3 +1,4 @@
+const { range } = require("rxjs");
 const pool = require("../config/db.config");
 
 // Add Menu
@@ -47,6 +48,21 @@ const updateMenu = (req, res, next) => {
 });
 };
 
+// Update Menu
+const supprimerMenu = (req, res, next) => { 
+    const id_menu = req.body.id_menu   
+    pool.query("delete from dashboard.menu where id_menu = $1", [id_menu], function (err, result) {
+       if (err) {
+        res.status(400).send(err);
+    }
+    if (Object.keys(result).length > 0) {
+        res.status(200).send(result.rows);
+    } else {
+        res.status(200).send();
+    }
+});
+};
+
 // Login
 const getLogin = (req, res, next) => {  
     const matricule = req.body.matricule
@@ -62,4 +78,20 @@ const getLogin = (req, res, next) => {
     }
 });
 };
-module.exports = {getMenu, getLogin, getMaxRangMenu, updateMenu};
+
+// Update Rang Menu
+const updateRangMenu = (req, res, next) => {  
+    const range = req.body.range
+    const id_menu = req.body.id_menu
+    pool.query("update dashboard.menu set rang_menu = $1 where id_menu = $2", [range,id_menu], function (err, result) {
+        if (err) {
+            res.status(400).send(err);
+        }
+        if (Object.keys(result).length > 0) {
+            res.status(200).send(result.rows);
+        } else {
+            res.status(200).send();
+        }
+    });
+};
+module.exports = {getMenu, getLogin, getMaxRangMenu, updateMenu, updateRangMenu, supprimerMenu};

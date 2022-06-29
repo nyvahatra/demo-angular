@@ -14,8 +14,5 @@ export class AccueilComponent implements OnInit {
   titreComponent: string = 'Accueil Component'
 
   ngOnInit(): void {
-    this.testService.getJSON().subscribe(data => {
-      console.log(data[0])
-    })
   }
 }

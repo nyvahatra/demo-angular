@@ -1,37 +1,71 @@
 <app-menu [titleComponent]="titleComponent"></app-menu>
-<div class="w-50 mt-2 p-3 rounded shadow-sm bg-white"> 
-    <div class="text-center">
-        <span class="h3 fw-normal">Gestion des menus</span>
+
+<div class="w-100 p-4 rounded shadow-sm" id="menu"> 
+    <table class="table table-primary">
+        <thead class="text-center">
+
+            <th style="width:9%" class="fw-normal">Icons</th>
+            <th style="width:28%" class="fw-normal">Noms</th>
+            <th style="width:35%;" class="fw-normal">Routes</th>
+            <th style="width:11%;" class="fw-normal">Rang</th>
+            <th style="width:17%;" class="fw-normal"></th>
+        
+        </thead>
+    </table>
+    <div class="corps-list" cdkDropList (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of liste_menu; let i = index" cdkDrag cdkDragLockAxis="y" class="list ps-4 pe-4 pt-2 pb-2">
+            <div class="w-100 d-flex flex-row justify-content-between align-items-center p-2">
+                
+                <div style="width:5%" class="text-center">
+                    <button class="btn btn-secondary"><i class="{{item.icon_menu}}"></i></button>
+                </div>
+                <div style="width:30%">
+                    <input type="text" [(ngModel)]="item.nom_menu" class="p-2 form-control form-control-sm">
+                </div>
+                <div style="width: 30%;">
+                    <input type="text" [(ngModel)]="item.route_menu" class="p-2 form-control form-control-sm">
+                </div>
+                <div style="width: 8%;">
+                    <input type="text" class="p-2 text-center form-control form-control-sm" value="{{i+1}}" [disabled]="true">
+                </div>
+                <div style="width: 6%;" class="text-center d-flex flex-row justify-content-between align-items-center">
+                    <button class="btn btn-warning" (click)="modifierMenu(item)"><i class="fa-solid fa-pen"></i></button>
+                    <button class="btn btn-danger" (click)="supprimerMenu(item.id_menu)"><i class="fa-solid fa-trash-can"></i></button>
+                </div>
+                <div style="width:5%;" class="text-center" cdkDragHandle>
+                    <i class="bi bi-three-dots-vertical" style="font-size: 20px;"></i>
+                </div>
+            
+            </div>
+        </div>
     </div>
     <hr>
-    <div> 
-        <table class="table table-bordered">
-            <thead>
-                <th style="width: 8%;">Icons</th>
-                <th style="width: 46%;">Noms</th>
-                <th style="width: 27%;">Routes</th>
-                <th style="width: 8%;">Rang</th>
-                <th style="width: 12%;"></th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of liste_menu">
-                    <td class="text-center"><button class="btn btn-sm btn-secondary"><i class="{{item.icon_menu}}"></i></button></td>
-                    <td><input type="text" [(ngModel)]="item.nom_menu" class="form-control form-control-sm"></td>
-                    <td><input type="text" [(ngModel)]="item.route_menu" class="form-control form-control-sm"></td>
-                    <td><input type="text" [(ngModel)]="item.rang_menu" class="form-control form-control-sm text-center"></td>
-                    <td class="text-center">
-                        <button class="btn btn-sm btn-warning" (click)="modifierMenu(item)"><i class="fa-solid fa-pen"></i></button>
-                        <button class="btn btn-sm ms-2 btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center"><button class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-plus"></i></button></td>
-                    <td><input type="text" class="form-control form-control-sm"></td>
-                    <td><input type="text" class="form-control form-control-sm"></td>
-                    <td><input type="text" [(ngModel)]="nextRang" class="form-control form-control-sm text-center"></td>
-                    <td class="text-center"><button class="btn btn-sm btn-success"><i class="fa-solid fa-check"></i></button></td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="ps-4 pe-4 pt-2 pb-2 bg-white">
+        <div class="w-100 d-flex flex-row justify-content-between align-items-center p-2">
+
+            <div style="width:5%" class="text-center">
+                <button class="btn btn-outline-secondary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            </div>
+            <div style="width:30%">
+                <input type="text" class="p-2 form-control form-control-sm">
+            </div>
+            <div style="width: 30%;">
+                <input type="text" class="p-2 form-control form-control-sm">
+            </div>
+            <div style="width: 8%;">
+                <input type="text" class="p-2 text-center form-control form-control-sm" value="{{nextRang}}" [disabled]="true">
+            </div>
+            <div style="width: 6%;" class="text-center">
+                <button type="button" class="btn btn-primary" (click)="ajouterMenu()"><i class="fa-solid fa-check"></i></button>
+            </div>
+            <div style="width:5%;" class="text-center">
+                <button class="btn btn-outline-primary" (click)="enregistrer()"><i class="bi bi-check-all"></i></button>
+            </div>
+        
+        </div>
     </div>
+</div>
+
+<div *ngFor="let icon of movies">
+    <button class="mt-2 btn btn-secondary" (click)="getIcon(icon)"><i class="{{icon}}"></i></button>
 </div>
