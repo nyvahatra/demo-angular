@@ -20,7 +20,7 @@ export class GestionMenuComponent implements OnInit {
   }
 
   icon: any 
-  titleComponent: string = 'Gestion du Menu'
+  titleComponent: string = 'Gestion des Menus'
   liste_menu:any
   
   iconMenu: any = 'bi bi-plus-lg'
