@@ -29,6 +29,24 @@ const getMaxRangMenu = (req, res, next) => {
 });
 };
 
+// Insert Menu
+const insertMenu = (req, res, next) => { 
+    const nom_menu = req.body.nom_menu
+    const route_menu = req.body.route_menu
+    const rang_menu = req.body.rang_menu    
+    const icon_menu = req.body.icon_menu   
+    pool.query("insert into dashboard.menu (nom_menu, route_menu, rang_menu, icon_menu) values ($1,$2,$3,$4)", [nom_menu, route_menu, rang_menu, icon_menu], function (err, result) {
+       if (err) {
+        res.status(400).send(err);
+    }
+    if (Object.keys(result).length > 0) {
+        res.status(200).send(result.rows);
+    } else {
+        res.status(200).send();
+    }
+});
+};
+
 // Update Menu
 const updateMenu = (req, res, next) => { 
     const id_menu = req.body.id_menu
@@ -48,7 +66,7 @@ const updateMenu = (req, res, next) => {
 });
 };
 
-// Update Menu
+// Delete Menu
 const supprimerMenu = (req, res, next) => { 
     const id_menu = req.body.id_menu   
     pool.query("delete from dashboard.menu where id_menu = $1", [id_menu], function (err, result) {
@@ -94,4 +112,4 @@ const updateRangMenu = (req, res, next) => {
         }
     });
 };
-module.exports = {getMenu, getLogin, getMaxRangMenu, updateMenu, updateRangMenu, supprimerMenu};
+module.exports = {getMenu, getLogin, getMaxRangMenu, updateMenu, updateRangMenu, supprimerMenu, insertMenu};

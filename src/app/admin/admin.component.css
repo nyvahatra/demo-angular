@@ -54,3 +54,10 @@
 .corps-list.cdk-drop-list-dragging .list:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+
+#showIcon div{
+  text-align: center;
+  max-height: 400px;
+  overflow-y: scroll;
+  background-color: rgb(245, 245, 245);
+}

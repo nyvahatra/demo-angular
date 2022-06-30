@@ -8,5 +8,6 @@ router.get('/get-max-rang-menu', testController.getMaxRangMenu)
 router.post('/update-menu', testController.updateMenu)
 router.post('/update-rang-menu', testController.updateRangMenu)
 router.post('/supprimer-menu', testController.supprimerMenu)
+router.post('/insert-menu', testController.insertMenu)
 
 module.exports = router; // export to use in server.js
