@@ -8,6 +8,7 @@ import { PageGuard } from './services/auth/page.guard';
 import { AccueilComponent } from './accueil/accueil.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AdminComponent } from './admin/admin.component';
+import { GestionMenuComponent } from './gestion-menu/gestion-menu.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate: [PageGuard]},
   { path: 'users', component: UtilisateurComponent, canActivate: [PageGuard]},
   { path: 'admin', component: AdminComponent, canActivate: [PageGuard]},
+  { path: 'gestion-menu', component: GestionMenuComponent, canActivate: [PageGuard]},
   { path: '**', pathMatch: 'full', component: Page404Component }
 ];
 

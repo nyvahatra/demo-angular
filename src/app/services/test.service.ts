@@ -54,7 +54,7 @@ export class TestService {
   }
 
   public getJson(): Observable<any>{
-    return this.http.get('../../assets/plugins/icons-fa5.json')
+    return this.http.get('../../assets/plugins/FontAwesome5.json')
   }
   
 }

@@ -68,3 +68,8 @@
   overflow-y: scroll;
   background-color: rgb(245, 245, 245);
 }
+
+.table{
+  background-color: rgba(106, 127, 171, 0.586);
+  /* color: white; */
+}

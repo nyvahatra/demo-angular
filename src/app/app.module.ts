@@ -14,6 +14,7 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AdminComponent } from './admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { GestionMenuComponent } from './gestion-menu/gestion-menu.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AccueilComponent,
     UtilisateurComponent,
     AdminComponent,
+    GestionMenuComponent,
   ],
   imports: [
     BrowserModule,
